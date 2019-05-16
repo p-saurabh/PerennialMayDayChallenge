@@ -1,0 +1,40 @@
+<?php
+  
+/* If PHP available at local system,
+  1) .php file is needed to run in CLI
+eg: php test.php
+
+This program is written in a dokcer env.
+ */
+
+  
+function equilibrium($arr, $n)  
+{  
+    $i; $j;  
+    $leftsum; 
+    $rightsum;  
+  
+    for ($i = 0; $i < $n; ++$i)  
+    {      
+  
+         $leftsum = 0;  
+        for ($j = 0; $j < $i; $j++)  
+            $leftsum += $arr[$j];  
+  
+         $rightsum = 0;  
+        for ($j = $i + 1; $j < $n; $j++)  
+            $rightsum += $arr[$j];  
+  
+         if ($leftsum == $rightsum)  
+            return "Index: "+$i;  
+    }  
+  
+ 
+    return -1;  
+}  
+    
+$arr = array( -7, 1, 5, 2, -4, 3, 0 );  
+$arr_size = sizeof($arr);  
+echo equilibrium($arr, $arr_size);  
+  
+?> 
